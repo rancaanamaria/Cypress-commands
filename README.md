@@ -28,3 +28,9 @@ commonMethods.clickOnTheFirstElement(usualSelectors.FILE_LINK, { timeout: 100000
 enter
 commonMethods.typeTextInToaDom(usualSelectors.SELECT_TRAILER, 'CJ-13-RDE{enter}');
         cy.wait(5000);
+
+select from menu
+ cy.get('#options-header-menu').contains('1. Accounts').next('#view-one').then($el => {
+            cy.wrap($el).invoke('show')
+            cy.get('#b2b-users-menu-btn').click({ force: true })
+        });
