@@ -36,7 +36,8 @@ select from menu
         });
 
 
-checked elements
+Conditional testing on checkbox in Cypress
+
  cy
         .get(customerSelectors.BLOCKED_ORDERS)
         .as('blocked-checkbox')
