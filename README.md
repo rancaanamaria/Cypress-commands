@@ -34,3 +34,21 @@ select from menu
             cy.wrap($el).invoke('show')
             cy.get('#b2b-users-menu-btn').click({ force: true })
         });
+
+
+checked elements
+ cy
+        .get(customerSelectors.BLOCKED_ORDERS)
+        .as('blocked-checkbox')
+        .invoke('is', ':checked')
+        .then(checked => {
+          if (checked) {
+            cy
+              .get('@blocked-checkbox')
+              .click();
+          } else {
+            cy
+              .get('@blocked-checkbox')
+              .dblclick();
+          }
+        });
