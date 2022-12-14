@@ -10,6 +10,19 @@ const filepath = '407381.pdf'
 cy.get('.cdk-overlay-container div div .mat-dialog-container .mat-form-field:nth-child(1) button').attachFile(filepath);
 cy.wait(500);
 
+sau
+
+cy.fixture('Chemari.xlsx', 'binary')
+            .then(Cypress.Blob.binaryStringToBlob)
+            .then(fileContent => {
+                cy.get(importExcelSelectors.IMPORT_BTN).attachFile({
+                    fileContent,
+                    fileName: 'Chemari.xlsx',
+                    mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    encoding: 'utf8'
+                })
+            })
+
 check mark
 cy.get('[type="checkbox"]').check({ force: true }).should('be.checked');
 
