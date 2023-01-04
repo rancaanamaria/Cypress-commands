@@ -4,6 +4,9 @@ verifyDownload
 cy.verifyDownload('CE_Guidance-on-posting-of-drivers.pdf', { timeout: 25000 });
 cy.wait(500);
 
+sau
+      cy.get(input[type=file]).selectFile('cypress/fixtures/blank.jpeg', { force: true });
+
 
 upload/attach file
 const filepath = '407381.pdf'
