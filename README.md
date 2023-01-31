@@ -69,3 +69,7 @@ Conditional testing on checkbox in Cypress
               .dblclick();
           }
         });
+
+
+Dropdown
+        cy.get(casaexpeditiiSelectors.DROPDOWN_SUBREGION).contains('Expeditii Cluj').click();
