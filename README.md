@@ -73,3 +73,9 @@ Conditional testing on checkbox in Cypress
 
 Dropdown
         cy.get(casaexpeditiiSelectors.DROPDOWN_SUBREGION).contains('Expeditii Cluj').click();
+        
+click on the first element        
+            clickOnTheFirstElement(webElement) {
+        cy.get(webElement).first().click({ force: true }, { timeout: 100000, interval: 500 });
+    };
+
