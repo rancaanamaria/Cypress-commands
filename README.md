@@ -69,6 +69,22 @@ Conditional testing on checkbox in Cypress
               .dblclick();
           }
         });
+        
+        cy
+        .get(normalSegmentationSelectors.CHECKBOX_SUBREGION)
+        .as('dislocation-checkbox')
+        .invoke('is', ':checked')
+        .then(checked => {
+            if (checked) {
+                cy
+                    .get('@dislocation-checkbox')
+                    .should('be.checked')
+            } else {
+                cy
+                    .get('@dislocation-checkbox')
+                    .click();
+            }
+        });
 
 
 Dropdown
