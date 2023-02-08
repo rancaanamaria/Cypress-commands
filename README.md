@@ -54,7 +54,7 @@ select from menu
 
 Conditional testing on checkbox in Cypress
 
- cy
+a) cy
         .get(customerSelectors.BLOCKED_ORDERS)
         .as('blocked-checkbox')
         .invoke('is', ':checked')
@@ -70,7 +70,7 @@ Conditional testing on checkbox in Cypress
           }
         });
         
-        cy
+  b)  cy
         .get(normalSegmentationSelectors.CHECKBOX_SUBREGION)
         .as('dislocation-checkbox')
         .invoke('is', ':checked')
@@ -85,6 +85,24 @@ Conditional testing on checkbox in Cypress
                     .click();
             }
         });
+       
+ c)  cy
+        .then(checked => {
+         if (checked) {
+             cy
+               .get('#pop-up-attention-error').contains(normalSegmentationSelectors.WARNING_SAME_DELIVERY_ADDRESS)
+               .get('#pop-up-ok-attention-error button')
+               .click()
+               .wait(20000)
+                .get(normalSegmentationSelectors.CONFIRM_RELOCATION)
+                .contains(normalSegmentationSelectors.CONFIRM_RELOCATION_TEXT)
+          } else {
+               cy
+                 .wait(20000)
+                 .get(normalSegmentationSelectors.CONFIRM_RELOCATION)
+                 .contains(normalSegmentationSelectors.CONFIRM_RELOCATION_TEXT)
+                }
+            });
 
 
 Dropdown
