@@ -113,3 +113,16 @@ click on the first element
         cy.get(webElement).first().click({ force: true }, { timeout: 100000, interval: 500 });
     };
 
+ startDateFilter() {
+        cy.wait(1000);
+        const now = new Date();
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const year = now.getFullYear();
+        const currentDate = `${day}/${month}/${year}`;
+
+        cy.get(filtersConsumVoucherSelectors.START_DATE_FIELD)
+            .type(currentDate)
+            .should('have.value', currentDate);
+        cy.wait(5000);
+    }
